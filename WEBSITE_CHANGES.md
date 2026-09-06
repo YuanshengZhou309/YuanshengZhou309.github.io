@@ -113,4 +113,6 @@ pdflatex -interaction=nonstopmode -halt-on-error -output-directory=local/cv-buil
 
 ## 发布执行记录
 
-2026-09-06：用户明确授权提交、推送和部署。提交前重新执行静态检查与 `git diff --check`，均通过；远程 `master` 与本地起点一致。正在提交并发布，最终结果以 GitHub Actions 的 Pages 部署状态为准。
+2026-09-06：用户明确授权提交、推送和部署。提交前重新执行静态检查与 `git diff --check`，均通过；远程 `master` 与本地起点一致。个人主页已提交为 `8b54497`（`Build Yuansheng Zhou academic personal website`）。HTTPS 推送因缺少 GitHub 登录凭据失败；现有 SSH 身份也返回 `Permission denied (publickey)`。当前 GitHub 连接对目标仓库没有写权限，且没有可连接的浏览器登录会话，因此推送与部署尚未完成。
+
+继续条件：在本机配置具有该仓库写权限的 GitHub 登录（或连接仓库所属账号）。无需在聊天中提供令牌或私钥。登录可用后，继续推送本地 `master`，检查／启用 Pages 发布源，并验证构建和在线页面。此次没有修改远程仓库、远程 Pages 设置或系统 SSH 配置。
