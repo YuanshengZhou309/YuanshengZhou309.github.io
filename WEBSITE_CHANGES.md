@@ -51,7 +51,7 @@
 - `LICENSE`、README 和页脚 Jekyll / Academic Pages / Minimal Mistakes 署名保持原样。
 - 本记录及开发工具已从站点构建中排除。
 
-## 验证结果与边界
+## 初始本地验证结果与边界（上线验证见末节）
 
 已完成本地静态检查：
 
@@ -63,7 +63,7 @@
 - `LICENSE`、README、页脚文件与 HEAD 逐字节一致。
 - 已阅读 `git diff`，并检查新增内容；`git diff --check` 通过。删除文件均为本次确认的模板示例或无关工作流。
 
-尚未完成：
+初始制作阶段尚未完成（后续远程构建结果见末节）：
 
 - **Jekyll 构建与 Sass/Liquid 实际编译**：没有 `ruby`、`bundle`、`jekyll`，也没有现成 Docker/Podman 构建环境。未使用 sudo、安装系统依赖或改动系统环境。
 - **桌面／手机实际渲染与交互测试**：未生成 Jekyll HTML，因此没有可据以验收的真实浏览器预览；响应式设置目前仅作源码检查。
@@ -101,7 +101,7 @@ pdflatex -interaction=nonstopmode -halt-on-error -output-directory=local/cv-buil
 
 只有编译成功并检查 PDF 排版后，再把 PDF 放入 `files/`，更新 `_pages/cv.md` 中的下载链接和说明；不要提前添加不存在的 PDF 链接。
 
-## GitHub Pages 发布步骤（仅说明，尚未执行）
+## GitHub Pages 发布流程
 
 1. 审阅本地改动、上述待核实信息及构建预览。收到用户后续明确指令后再提交、推送。
 2. 在 GitHub 仓库 **Settings → Pages → Build and deployment** 中，选择 **Deploy from a branch**，分支选择本仓库实际使用的 `master`，目录选择 **/(root)**，保存。步骤依据 [GitHub 官方发布源说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
@@ -109,10 +109,26 @@ pdflatex -interaction=nonstopmode -halt-on-error -output-directory=local/cv-buil
 4. 推送到发布分支后，在 Actions 检查 GitHub 的 Pages 构建和部署结果。仓库内名为 **Jekyll build** 的工作流只负责构建验证，不负责部署。
 5. 发布成功后访问主页，复查四个导航、五个项目、论文 DOI、照片及 CV 下载，并检查 `/sitemap.xml`。如实际发布分支改为 `main`，应相应调整 Pages 分支选择。
 
-以上发布步骤未在本轮执行。
+初始制作阶段未执行发布；随后经用户授权执行，结果记录如下。
 
 ## 发布执行记录
 
-2026-09-06：用户明确授权提交、推送和部署。提交前重新执行静态检查与 `git diff --check`，均通过；远程 `master` 与本地起点一致。个人主页已提交为 `8b54497`（`Build Yuansheng Zhou academic personal website`）。HTTPS 推送因缺少 GitHub 登录凭据失败；现有 SSH 身份也返回 `Permission denied (publickey)`。当前 GitHub 连接对目标仓库没有写权限，且没有可连接的浏览器登录会话，因此推送与部署尚未完成。
+2026-09-06：用户明确授权提交、推送和部署。提交前重新执行静态检查与 `git diff --check`，均通过；远程 `master` 与本地起点一致。个人主页已提交为 `8b54497`（`Build Yuansheng Zhou academic personal website`）。HTTPS 推送因缺少 GitHub 登录凭据失败；现有 SSH 身份也返回 `Permission denied (publickey)`。当前 GitHub 连接对目标仓库没有写权限，且没有可连接的浏览器登录会话，因此当时未能完成推送与部署。
 
-继续条件：在本机配置具有该仓库写权限的 GitHub 登录（或连接仓库所属账号）。无需在聊天中提供令牌或私钥。登录可用后，继续推送本地 `master`，检查／启用 Pages 发布源，并验证构建和在线页面。此次没有修改远程仓库、远程 Pages 设置或系统 SSH 配置。
+当时的继续条件（现已满足）：在本机配置具有该仓库写权限的 GitHub 登录（或连接仓库所属账号）。无需在聊天中提供令牌或私钥。登录可用后，继续推送本地 `master`，检查／启用 Pages 发布源，并验证构建和在线页面。此次没有修改远程仓库、远程 Pages 设置或系统 SSH 配置。
+
+
+### 上线成功
+
+2026-09-06：用户通过 GitHub CLI 登录 `YuanshengZhou309` 后，认证和推送均成功。
+
+- 远程 Pages 已配置为从 `master` 的 `/` 发布，`build_type` 为 `legacy`，`cname` 为空；无需更改远程设置。
+- 已推送个人主页提交 `8b54497` 和状态记录提交 `c848d85`。
+- 对应 [Pages 构建与部署运行](https://github.com/YuanshengZhou309/YuanshengZhou309.github.io/actions/runs/34043371845) 已完成，结论为 **success**。GitHub 执行的 Jekyll 构建及部署均成功，补足了本机缺少 Ruby/Jekyll 导致的构建验证空缺。
+- 正式网址：[https://yuanshengzhou309.github.io/](https://yuanshengzhou309.github.io/)。
+- 已读取并检查线上 11 个内容页面（四个导航页面、五个项目详情、论文详情、Sitemap），共 23 个页面和资源地址，全部 HTTP 200。
+- 线上内部链接及锚点、页面标题、论文姓名加粗、Liquid 渲染和编译后的 CSS 检查通过；未发现示例身份、电话号码或自动补入的发表日期。
+- 线上个人照片和 LaTeX 简历下载内容与本地文件 SHA-256 完全一致。
+- 本次成功记录作为后续文档提交同步；此文档已从网站构建中排除，不影响页面内容。
+
+仍未完成的验证：桌面／手机浏览器视觉与交互检查、LaTeX 编译和 PDF 排版检查、外部个人档案及 DOI 的可达性检查。CV 继续提供真实存在的 LaTeX 源码下载，没有 PDF 下载链接。
