@@ -1,0 +1,102 @@
+/* Small, theme-aware refinements for this Academic Pages site. */
+html:not([data-theme="dark"]) {
+  --global-link-color: #236579;
+  --global-link-color-hover: #174655;
+  --global-link-color-visited: #3d5c75;
+}
+
+.masthead__menu-item.selected a {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.sidebar .author__desktop { display: block; }
+
+.page__title {
+  line-height: 1.25;
+}
+
+.page__content {
+  line-height: 1.7;
+  overflow-wrap: break-word;
+
+  h2 { margin-top: 1.8em; }
+  h3 { line-height: 1.4; }
+  a { text-underline-offset: 0.15em; }
+}
+
+.project-summary {
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid var(--global-border-color);
+
+  h2 {
+    margin-bottom: 0.45em;
+    border-bottom: 0;
+    padding-bottom: 0;
+    line-height: 1.4;
+  }
+
+  &:last-child { border-bottom: 0; }
+}
+
+.page__content .project-meta {
+  font-size: 0.85em;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.project-details { font-size: 0.9em; }
+
+.sidebar .author__avatar img {
+  display: block;
+  width: 100%;
+  max-width: 210px;
+  height: auto;
+  border-radius: 6px;
+  padding: 0;
+}
+
+.author__urls li {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+:focus-visible {
+  outline: 2px solid var(--global-link-color);
+  outline-offset: 3px;
+}
+
+@include breakpoint(max-width $large) {
+  .sidebar .author__avatar { width: 100px; }
+  .author__content { padding-right: 0; }
+
+  .author__urls-wrapper {
+    display: block;
+    cursor: default;
+
+    button { display: none; }
+  }
+
+  .author__urls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em 1em;
+    position: static;
+    margin: 1em 0 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    z-index: auto;
+
+    &:before, &:after { display: none; }
+  }
+
+  .sidebar .author__desktop {
+    display: block;
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .sidebar .author__avatar { width: 80px; }
+}

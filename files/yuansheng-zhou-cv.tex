@@ -1,0 +1,275 @@
+\documentclass[a4paper,11pt]{article}
+
+% Public website CV. Adapted from the supplied CV; telephone number omitted.
+
+% ---------- Core packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[sfdefault]{roboto}
+\usepackage{microtype}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{needspace}
+\usepackage{hyperref}
+\usepackage{iftex}
+
+% ---------- Page geometry ----------
+\geometry{
+  left=1.75cm,
+  right=1.75cm,
+  top=1.40cm,
+  bottom=1.45cm
+}
+
+% ---------- PDF settings ----------
+\hypersetup{
+  pdftitle={Curriculum Vitae - Yuansheng Zhou},
+  pdfauthor={Yuansheng Zhou},
+  colorlinks=true,
+  allcolors=black,
+  pdfborder={0 0 0}
+}
+\urlstyle{same}
+
+\ifPDFTeX
+  \IfFileExists{glyphtounicode.tex}{\input{glyphtounicode}}{}
+  \pdfgentounicode=1
+\fi
+
+% ---------- General formatting ----------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\raggedbottom
+\linespread{1.035}
+
+% ---------- Section formatting ----------
+\titleformat{\section}
+  {\large\bfseries\scshape\raggedright}
+  {}{0em}{}
+  [\vspace{-0.28em}\titlerule]
+
+\titlespacing*{\section}{0pt}{0.92em}{0.46em}
+
+% ---------- CV commands ----------
+\newcommand{\resumeSubheading}[4]{%
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{3.55cm}@{}}
+    \textbf{#1} & \textbf{#2} \\
+    \textit{#3} & \textit{#4}
+  \end{tabularx}
+  \vspace{0.02em}
+}
+
+\newcommand{\resumeItemListStart}{%
+  \begin{itemize}[
+    leftmargin=1.25em,
+    label=\textendash,
+    itemsep=0.20em,
+    topsep=0.20em,
+    parsep=0pt,
+    partopsep=0pt
+  ]
+}
+
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+\newcommand{\resumeItem}[1]{\item \small #1}
+
+\newcommand{\skillItem}[2]{%
+  \noindent\small\textbf{#1:} #2\par\vspace{0.25em}
+}
+
+\newcommand{\educationEntry}[4]{%
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{3.55cm}@{}}
+    \textbf{#1} & \textbf{#2} \\
+    \textit{#3} & \textit{#4}
+  \end{tabularx}
+  \vspace{0.34em}
+}
+
+\begin{document}
+
+% ============================================================
+% HEADER
+% ============================================================
+\begin{center}
+  {\Huge\bfseries Yuansheng Zhou}\\[0.26em]
+  {\small
+  Kongens Lyngby, Denmark
+  \enspace $|$ \enspace
+  \href{mailto:s232925@dtu.dk}{s232925@dtu.dk}
+  \enspace $|$ \enspace
+  \href{https://www.linkedin.com/in/yuansheng-zhou-8142542a0/}{linkedin.com/in/yuansheng-zhou-8142542a0}
+  }
+\end{center}
+
+\vspace{-0.10em}
+
+% ============================================================
+% PROFILE
+% ============================================================
+\section{Research Profile}
+
+\small
+MSc graduate in Autonomous Systems from the Technical University of Denmark with project experience in machine learning, signal processing, intelligent sensing, and robotics and automation. Work spans acoustic authentication, EEG and EMG analysis, medical image generation, and pharmaceutical automation, from sensor data acquisition and preprocessing to model evaluation and system integration.
+\normalsize
+
+% ============================================================
+% EDUCATION
+% ============================================================
+\section{Education}
+
+\educationEntry
+  {Technical University of Denmark (DTU)}
+  {Kongens Lyngby, Denmark}
+  {MSc in Autonomous Systems, Department of Electrical and Photonics Engineering}
+  {Sep 2023 -- Jun 2026}
+
+\small
+Relevant study areas: artificial intelligence, embedded systems, data analysis, optimization, information technology, and systems engineering.
+\normalsize
+\vspace{0.34em}
+
+\educationEntry
+  {Ecole Polytechnique Federale de Lausanne (EPFL)}
+  {Lausanne, Switzerland}
+  {Exchange Semester in Microengineering}
+  {Sep 2024 -- Jan 2025}
+
+\small
+Coursework in medical image processing and data analysis.
+\normalsize
+\vspace{0.34em}
+
+\educationEntry
+  {Zhejiang Normal University}
+  {Jinhua, China}
+  {BEng in Mechanical Design, Manufacturing and Automation (English-taught)}
+  {Sep 2019 -- Jun 2023}
+
+\small
+Average grade: 88/100; ranked in the top three of the cohort.
+\normalsize
+
+% ============================================================
+% RESEARCH EXPERIENCE
+% ============================================================
+\section{Research Experience}
+
+\resumeSubheading
+  {Music-Driven Binaural Ear-Acoustic Authentication}
+  {Oct 2025 -- Mar 2026}
+  {Master's Thesis, Technical University of Denmark}
+  {Kongens Lyngby, Denmark}
+
+\resumeItemListStart
+  \resumeItem{Built an end-to-end acoustic-authentication pipeline using binaural microphone recordings collected with OpenEarable 2.0 from 50 participants.}
+  \resumeItem{Implemented audio preprocessing, MFCC feature extraction, machine-learning-based identity recognition, and replay-attack robustness evaluation.}
+  \resumeItem{Compared monaural and binaural feature-fusion strategies and observed improved recognition performance from combining binaural information.}
+  \resumeItem{Developed experience with real-world acoustic sensing, time-frequency representations, inter-channel information, and robustness-oriented evaluation.}
+\resumeItemListEnd
+
+\vspace{0.28em}
+
+\resumeSubheading
+  {EEG Analysis of Neural Responses to Taste Stimuli}
+  {Oct 2022 -- Jun 2023}
+  {Bachelor's Research, Biomedical Engineering Laboratory}
+  {Jinhua, China}
+
+\resumeItemListStart
+  \resumeItem{Processed and analysed scalp EEG responses to five basic tastes and a tasteless control, using feature selection and spectral and temporal comparisons across brain regions.}
+  \resumeItem{Contributed to the study's conceptualization and formal analysis; results were published in \textit{Biomedical Signal Processing and Control}.}
+\resumeItemListEnd
+
+% ============================================================
+% PUBLICATION
+% ============================================================
+\section{Publication}
+
+\begin{itemize}[
+  leftmargin=1.25em,
+  label=\textbullet,
+  itemsep=0.30em,
+  topsep=0.20em,
+  parsep=0pt
+]
+  \item \small
+  Xu, W., Zhu, Y., \textbf{Zhou, Y.}, et al. (2026).
+  ``\href{https://doi.org/10.1016/j.bspc.2025.108883}{Exploring the differences between five basic tastes and tasteless stimuli on brain responses in young adult males utilizing scalp electroencephalography}.''
+  \textit{Biomedical Signal Processing and Control}, 112, 108883.
+  \href{https://doi.org/10.1016/j.bspc.2025.108883}{doi:10.1016/j.bspc.2025.108883}.
+  Contribution: conceptualization and formal analysis.
+\end{itemize}
+
+\newpage
+
+% ============================================================
+% SELECTED TECHNICAL PROJECTS
+% ============================================================
+\section{Selected Technical Projects}
+
+\resumeSubheading
+  {Medical Image Generation with Diffusion Models}
+  {Feb 2025 -- May 2025}
+  {DTU Compute}
+  {Kongens Lyngby, Denmark}
+
+\resumeItemListStart
+  \resumeItem{Fine-tuned Stable Diffusion 2.1 with LoRA on ISIC 2019 melanoma and nevus images to generate synthetic dermatological lesions.}
+  \resumeItem{Used text-embedding interpolation to study transitions between benign and malignant classes and evaluated class consistency with a ResNet18 classifier.}
+\resumeItemListEnd
+
+\vspace{0.28em}
+
+\resumeSubheading
+  {Action Classification and Joint-Angle Estimation from EMG}
+  {Nov 2024 -- Dec 2024}
+  {Machine Learning Project}
+  {Kongens Lyngby, Denmark}
+
+\resumeItemListStart
+  \resumeItem{Processed NinaPro EMG signals, extracted features, and developed machine-learning models for hand-action classification and joint-angle regression.}
+  \resumeItem{Applied time-series and biomedical-signal processing to movement-intention estimation for assistive-robotics applications.}
+\resumeItemListEnd
+
+\vspace{0.28em}
+
+\resumeSubheading
+  {GMP-Oriented Pharmaceutical Automation}
+  {Jan 2025}
+  {NNE and Technical University of Denmark}
+  {Virum, Denmark}
+
+\resumeItemListStart
+  \resumeItem{Integrated a UR3e robot and two SICK 3D cameras for automated visual inspection and sorting of pharmaceutical cartridges.}
+  \resumeItem{Implemented robot control, safety configuration, HMI functionality, testing, and documentation in Siemens TIA Portal.}
+\resumeItemListEnd
+
+% ============================================================
+% TECHNICAL SKILLS
+% ============================================================
+\section{Technical Skills}
+
+\skillItem{Programming and Modelling}{Python; C/C++; machine-learning classification and regression; diffusion-model fine-tuning with LoRA; data analysis and experimental evaluation.}
+\skillItem{Signal Processing}{Audio preprocessing; MFCC and time-frequency features; binaural feature fusion; EEG and EMG processing; spectral analysis and feature selection.}
+\skillItem{Sensors, Robotics and Automation}{OpenEarable 2.0; UR3e; SICK 3D cameras; FANUC; PLC/HMI development; Siemens TIA Portal; GX Works2; servo-motor control.}
+\skillItem{Research Interests}{Machine learning; signal processing; intelligent sensing; robotics and automation.}
+
+% ============================================================
+% HONORS AND LANGUAGES
+% ============================================================
+\section{Honors and Languages}
+
+\small
+\textbf{Honors:} President's Special Award (2023); Scholarship for Outstanding Students (2020, 2022); Second Prize, Metallographic Skills Competition of ZJNU (2021).\\[0.24em]
+\textbf{Languages:} Mandarin (native); English (BEng\&MSc completed in English); Danish (Danskuddannelse 3, Module 2).
+\normalsize
+
+\end{document}

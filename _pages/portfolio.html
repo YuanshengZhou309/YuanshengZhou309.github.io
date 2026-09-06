@@ -1,14 +1,20 @@
 ---
-layout: archive
-title: "Portfolio"
-permalink: /portfolio/
-author_profile: true
+layout: single
+title: "Research & Projects"
+permalink: /research/
+redirect_from:
+  - /portfolio/
+excerpt: "Research and projects in acoustic and biomedical sensing, machine learning, and robotics and automation."
 ---
 
-{% include base_path %}
+<p>My projects connect signal analysis and machine learning with practical sensing and automation tasks.</p>
 
-
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
+{% assign projects = site.portfolio | sort: 'order' %}
+{% for project in projects %}
+<section class="project-summary" aria-labelledby="project-{{ project.slug }}">
+  <h2 id="project-{{ project.slug }}"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+  <p class="project-meta">{{ project.period }} · {{ project.context }}</p>
+  <p>{{ project.excerpt }}</p>
+  <a class="project-details" href="{{ project.url | relative_url }}" aria-label="Read about {{ project.title | escape }}">Project details <span aria-hidden="true">&rarr;</span></a>
+</section>
 {% endfor %}
-
